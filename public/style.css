@@ -42,8 +42,8 @@
 
 @media only screen and (min-width: 468px) {
   .box {
-    height: 13vh;
-    width: 21vw;
+    height: 21vh;
+    width: 13vw;
   }
 }
 
