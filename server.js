@@ -117,6 +117,6 @@ app.put('/pineboxes/:id', function(req, res, next) {
   });
 });///////////////////////////////////////////////// edit a certain pineappleBox's
 //*******************************************************   pineapple paths *************************************************************
-app.listen(8000, function() {
+app.listen(process.env.PORT || 8000, function() {
   console.log("Pineapple! Listening on 8000.");
 });
