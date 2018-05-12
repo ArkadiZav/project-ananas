@@ -142,7 +142,7 @@ app.controller('pineAppCtrl', ['$scope', 'pineAppService', function($scope, pine
      $scope.pineboxes[$scope.index].display = $scope.bckgrndclr;
      $scope.checkWin();
      $scope.$apply(); }, 1000);
-   }
+ }
 
   $scope.defaultColorize = function(arr) {
     for (var i = 0; i < arr.length; i++) {

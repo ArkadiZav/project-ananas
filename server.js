@@ -6,7 +6,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/pineboxes");
+mongoose.connect("mongodb://localhost/ananas");
 //mongoose.connect("mongodb://localhost/players");
 var Pinebox = require("./pineboxModel");
 //var Player = require("./playerModel");

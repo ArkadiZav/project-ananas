@@ -54,21 +54,14 @@
 
     <script> $("#myModal").modal();</script>
 
-
-    <div class = "pinebox-container row">
-        <ul class = "col-md-12 col-md-offset-3">
-          <div style="display:inline" ng-repeat = "pinebox in pineboxes track by $index">
-            <div class = "row" ng-show="$index % (initialNumPairs/2) == (initialNumPairs/2 - 1)">
-              <li type = "button" ng-class ="getClass(pinebox.display)" class = "col-md-3 box" style="background-color: {{pinebox.display}}" ng-click = "play(pinebox, $index)">  </li>
-            </div>
-            <div ng-show="$index % (initialNumPairs/2) != (initialNumPairs/2 - 1)">
-              <li type = "button" ng-class ="getClass(pinebox.display)" class = "col-md-3 box" style="background-color: {{pinebox.display}}" ng-click = "play(pinebox, $index)">  </li>
-            </div>
-          </div>
-        </ul>
+    <div class="pinebox-container">
+      <div class="pinebox" ng-repeat ="pinebox in pineboxes track by $index">
+        <div type="button" ng-class ="getClass(pinebox.display)" class="box" style="background-color: {{pinebox.display}}" ng-click="play(pinebox, $index)"></div>
+        <div class="break" ng-show="$index % 4 === 3"></div>
+      </div>
     </div>
-      <button ng-show = "isMuteOff" type="button" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-volume-off" aria-hidden="true" ng-click = "mute()"></span></button>
-      <button ng-show = "!isMuteOff" type="button" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-volume-up" aria-hidden="true" ng-click = "unmute()"></span></button>
+      <!-- <button ng-show = "isMuteOff" type="button" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-volume-off" aria-hidden="true" ng-click = "mute()"></span></button>
+      <button ng-show = "!isMuteOff" type="button" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-volume-up" aria-hidden="true" ng-click = "unmute()"></span></button> -->
 
     <!-- <div class="col-md-6 col-md-offset-3">
       <form ng-submit="getPlayer()" class="form-group">
