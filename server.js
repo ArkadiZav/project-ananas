@@ -6,7 +6,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/ananas");
+
+var mongo_connection_string_prod = process.env.CONNECTION_STRING;
+var mongo_connection_string_local = "mongodb://localhost/ananas";
+var mongo_connection_string = typeof(mongo_connection_string_prod) !== "undefined" ? mongo_connection_string_prod : mongo_connection_string_local;
+
+// mongoose.Promise = global.Promise;
+mongoose.connect(mongo_connection_string, {
+  useMongoClient: true
+},
+  function (err, db) {
+    if (err) {
+      console.error("Error connecting to mongo");
+    } else {
+      console.log("Connected to mongo");
+    }
+  });
 //mongoose.connect("mongodb://localhost/players");
 var Pinebox = require("./pineboxModel");
 //var Player = require("./playerModel");
@@ -118,5 +133,5 @@ app.put('/pineboxes/:id', function(req, res, next) {
 });///////////////////////////////////////////////// edit a certain pineappleBox's
 //*******************************************************   pineapple paths *************************************************************
 app.listen(process.env.PORT || 8000, function() {
-  console.log("Pineapple! Listening on 8000.");
+  console.log("Pineapp!");
 });
